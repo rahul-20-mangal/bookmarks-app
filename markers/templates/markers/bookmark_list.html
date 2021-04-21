@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h1>All Bookmarks</h1>
+        <table class="table table-dark table-hover table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Url</th>
+                <td>Folder</td>
+                <th>Detail</th>
+            </tr>
+            {% for bookmark in bookmark_list %}
+                <tr>
+                    <td>{{ bookmark.name }}</td>
+                    <td><a href="{{ bookmark.url }}">{{ bookmark.url }}</a></td>
+                    <td>{{ bookmark.folder }}</td>
+                    <td><a href="{% url 'markers:bookmark-detail' pk=bookmark.pk %}"><button class="btn btn-primary">Detail</button></a></td>
+                </tr>  
+            {% endfor %}
+        </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Bookmark Details</h1>
+    <p><b>Name: </b>{{ bookmark.name }}</p>
+    <p><b>Url: </b><a href="{{bookmark.url}}">{{bookmark.url}}</a></p>
+    <p><b>Description: </b>{{bookmark.description}}</p>
+
+    <p><b>Tags: </b></p>
+    <ul>
+        {% for tag in bookmark.tags.all %}
+        <li>{{ tag }}</li>
+        {% endfor %}
+    </ul>
+
+    <p><b>Folder: </b>{{ bookmark.folder }}</p>
+
+</div>
+
+{% endblock %}

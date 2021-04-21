@@ -1,4 +1,10 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from .models import Bookmark
 
-def index(request):
-    return render(request, 'markers/index.html')
+class BookmarkListView(ListView):
+    model = Bookmark
+
+class BookmarkDetailView(DetailView):
+    model = Bookmark
+
