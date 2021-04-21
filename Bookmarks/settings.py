@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'markers.apps.MarkersConfig',
     'taggit',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
