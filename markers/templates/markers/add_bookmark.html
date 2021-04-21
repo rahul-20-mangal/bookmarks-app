@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="conatiner" style="text-align: center;">
-    <h1>Add Bookmark</h1>
+    <h1>Add/Edit Bookmark</h1>
     <form method="post">
         {% csrf_token %}
         
@@ -12,7 +12,7 @@
                 {{ bookmark_form }}
             </table>
         </div>
-        <button type="submit" class="btn btn-success">Add Bookmark</button>
+        <button type="submit" class="btn btn-success">Submit</button>
     </form>
     <br>
 </div>
