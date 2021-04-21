@@ -9,4 +9,5 @@ urlpatterns = [
     path('add_bookmark/', views.add_bookmark, name='add-bookmark'),
     path('edit_bookmark/<int:pk>/', views.edit_bookmark, name='edit-bookmark'),
     path('delete_bookmark/<int:pk>/', views.delete_bookmark, name='delete-bookmark'),
+    path('create_folder/', views.create_folder, name='create-folder'),
 ]

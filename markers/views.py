@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
 from markers.models import Bookmark
 from markers.filters import BookmarkFilter
-from markers.forms import BookmarkForm 
+from markers.forms import BookmarkForm, FolderForm
 from django.db import transaction
 
 
@@ -55,3 +55,17 @@ def delete_bookmark(request, pk):
     bookmark.delete()
 
     return redirect('markers:bookmark-list')
+
+
+@transaction.atomic
+def create_folder(request):
+    folder_form = FolderForm(request.POST or None)
+
+    if folder_form.is_valid():
+        folder_form.save()
+        return redirect('markers:bookmark-list')
+
+    context = {
+        "folder_form": folder_form,
+    }
+    return render(request, 'markers/create_folder.html', context)
