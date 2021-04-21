@@ -9,5 +9,11 @@ class Bookmark(models.Model):
     tags = TaggableManager()
     folder = models.ForeignKey('Folder', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return '{} in folder {}'.format(self.name, self.folder)
+
 class Folder(models.Model):
     name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
